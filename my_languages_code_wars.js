@@ -10,6 +10,20 @@ Examples
 {"C++": 50, "ASM": 10, "Haskell": 20}     -->  []
 */
 
-function myLanguages(results) {
+const myLanguages = (results) => {
+  let sortedResults = [];
+  let finalArr = [];
+  for(let language in results) {
+    sortedResults.push([language, results[language]]);
+  }
+  sortedResults.sort((a, b) => {
+    return b[1] - a[1];
+  })
+  for(let i = 0; i < sortedResults.length; i++) {
+    if(sortedResults[i][1] >= 60) {
+      finalArr.push(sortedResults[i][0]);
+    }
+  }
 
+  return finalArr;
 }
